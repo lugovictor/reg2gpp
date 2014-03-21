@@ -1,5 +1,5 @@
 <?php
-#    Copyright 2013 Sean Mackedie
+#    Copyright 2014 Sean Mackedie
 #
 #
 #    This file is part of Reg2GPP.

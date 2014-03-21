@@ -1,15 +1,27 @@
+0.7B - 21/03/2014
+* BETA milestone
+* Corrected some minor spelling errors on the first page
+* Removed some BASEDIR chdirs which didn't seem necessary and sometimes caused
+  PHP errors
+* Changed source distribution from manually uploaded ZIP files to GIT
+  repository for improved version control
+* Added README
+
 0.6.5A - 23/10/2013
 * Patched to work with Joomla through Jumi
-* Separated some variables into a config file for easier implementation on different servers
+* Separated some variables into a config file for easier implementation on
+  different servers
 * Added error file to translate file upload errors into English
-* Changed counter to just record number of downloads rather than download and visits
+* Changed counter to just record number of downloads rather than download and
+  visits
 * Changed a bit of the text and formatting displayed in browser
 
 0.6A - 25/03/2013
 * Fixed duplicate (Default) entries
 * Fixed UTF-8 chars not being encoded, causing errors in output files
 * Fixed a bug that broke output when registry file had deleted registry keys
-* Fixed a bug that would result in empty keys being created as subkeys to previous keys instead of where they should be
+* Fixed a bug that would result in empty keys being created as subkeys to
+  previous keys instead of where they should be
 
 0.5A - 08/11/2012
 * Fixed bug stripping trailing quotes meant as part of REG_SZ string
@@ -17,7 +29,8 @@
 * Added ability to create empty registry keys
 
 0.4A - 13/10/2012
-* Added Common Options to XML output (except Item-Level Targetting - future release)
+* Added Common Options to XML output (except Item-Level Targetting - future
+  release)
 * Released under GNU AGPL
 
 0.3A - 12/10/2012

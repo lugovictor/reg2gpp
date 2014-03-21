@@ -1,5 +1,5 @@
 <?php
-#    Copyright 2012 Sean Mackedie
+#    Copyright 2014 Sean Mackedie
 #
 #
 #    This file is part of Reg2GPP.
@@ -19,7 +19,6 @@
 
 session_start();
 include 'config.php';
-chdir(BASEDIR);
 include 'error.php'; ?>
 <html>
 <body>
