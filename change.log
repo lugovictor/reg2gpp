@@ -1,0 +1,20 @@
+0.6A - 25/03/2013
+* Fixed duplicate (Default) entries
+* Fixed UTF-8 chars not being encoded, causing errors in output files
+* Fixed a bug that broke output when registry file had deleted registry keys
+* Fixed a bug that would result in empty keys being created as subkeys to previous keys instead of where they should be
+
+0.5A - 08/11/2012
+* Fixed bug stripping trailing quotes meant as part of REG_SZ string
+* Added ability to delete registry keys
+* Added ability to create empty registry keys
+
+0.4A - 13/10/2012
+* Added Common Options to XML output (except Item-Level Targetting - future release)
+* Released under GNU AGPL
+
+0.3A - 12/10/2012
+* Fix conversion of MULTI_SZ values
+
+0.2A - 26/08/2012
+* Original upload
