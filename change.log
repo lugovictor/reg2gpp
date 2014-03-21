@@ -1,3 +1,10 @@
+0.6.5A - 23/10/2013
+* Patched to work with Joomla through Jumi
+* Separated some variables into a config file for easier implementation on different servers
+* Added error file to translate file upload errors into English
+* Changed counter to just record number of downloads rather than download and visits
+* Changed a bit of the text and formatting displayed in browser
+
 0.6A - 25/03/2013
 * Fixed duplicate (Default) entries
 * Fixed UTF-8 chars not being encoded, causing errors in output files

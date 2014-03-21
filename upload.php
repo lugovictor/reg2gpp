@@ -18,16 +18,31 @@
 #    along with Reg2GPP.  If not, see <http://www.gnu.org/licenses/>.
 
 session_start();
-
+include 'config.php';
+chdir(BASEDIR);
+include 'error.php'; ?>
+<html>
+<body>
+<h1>Reg2GPP</h1>
+<?php
 if ($_FILES["file"]["error"] > 0)
 	{
-	echo "Error: " . $_FILES["file"]["error"] . "<br />";
+	echo "<strong>Error: ";
+	try
+		{
+		throw new UploadException($_FILES['file']['error']);
+		}
+	catch(UploadException $e)
+		{
+		echo $e->getMessage();
+		}
+	echo "</strong><br />";
 	}
 else
 	{
 	if ($_FILES["file"]["name"] == $_SESSION["file"]["name"] and md5(serialize(file($_FILES["file"]["tmp_name"], FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES))) == md5(serialize($_SESSION["reg_data"])))
 		{
-		echo "File already uploaded!<br /><br />";
+		echo "<em>File already uploaded!</em><br /><br />";
 		$newfile = 0;
 		}
 	else
@@ -36,9 +51,9 @@ else
 		$newfile = 1;
 		}	
 
-	echo "Upload: ".$_SESSION["file"]["name"]."<br />";
-	echo "Type: ".$_SESSION["file"]["type"]."<br />";
-	echo "Size: " . round(($_SESSION["file"]["size"] / 1024), 2) . " Kb<br />";
+	echo "<strong>Upload:</strong> ".$_SESSION["file"]["name"]."<br />";
+	echo "<strong>Type:</strong> ".$_SESSION["file"]["type"]."<br />";
+	echo "<strong>Size:</strong> " . round(($_SESSION["file"]["size"] / 1024), 2) . " Kb<br />";
 	
 	if ($newfile == 1)
 		{
@@ -71,7 +86,7 @@ else
 		    document.getElementById("removePolicy").blur();
 		}
 		</script>
-		<form action="download.php" method="post">
+		<form action="<?php echo DOWNLOAD_FILE ?>" method="post">
 		<label for="collection">Collection Name:</label>
 		<input type="text" name="collection" size="30" value="<?php echo str_ireplace(".reg", "", $_SESSION["file"]["name"]); ?>"/><br />
 		<p>Default Action:<br />
@@ -92,7 +107,9 @@ else
 		}
 	else
 		{
-		echo "This file is not a valid .REG file!<br />Please ensure the file you're uploading is valid and try again.";
+		echo "<p></p><p><strong>This file is not a valid .REG file!</strong><br />Please ensure the file you're uploading is valid and try again.</p>";
 		}
 	}
 ?>
+</body>
+</html>

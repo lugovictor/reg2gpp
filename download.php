@@ -18,12 +18,13 @@
 #    along with Reg2GPP.  If not, see <http://www.gnu.org/licenses/>.
 
 session_start();
+include 'config.php';
 error_reporting(E_ALL ^ E_NOTICE);
-if (file_exists('counter'))
+if (file_exists(BASEDIR.'counter'))
   {
-  $file = file('counter', FILE_IGNORE_NEW_LINES);
-  $file[1]++;
-  file_put_contents('counter', implode("\n", $file));
+  $file = file(BASEDIR.'counter', FILE_IGNORE_NEW_LINES);
+  $file[0]++;
+  file_put_contents(BASEDIR.'counter', implode("\n", $file));
   }
 
 include 'guid.php';
@@ -302,7 +303,7 @@ function hex2str($hex)
 	return $string;
 	}
 	
-function add_empty_key($xmlseg, $top, $hive, $key) # NOT IN USE - Broken
+function add_empty_key($xmlseg, $top, $hive, $key)
 	{
 	foreach ($xmlseg->xpath("Collection") as $node)
 		{
@@ -392,6 +393,7 @@ foreach ($reg_data_scrubbed as &$tmp)
 		}
 	}
 
+global $xml; # Fix for Joomla weirdness
 $xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?>'.'<Collection clsid="{53B533F5-224C-47e3-B01B-CA3B3F3FF4BF}" name="'.$_POST["collection"].'"></Collection>');
 
 foreach ($reg_data_scrubbed as $reg_line)
@@ -414,9 +416,8 @@ foreach ($reg_data_scrubbed as $reg_line)
 		}
 	}
 	
-add_empty_key($xml, 1, "", ""); # NOT IN USE - Broken
-
+add_empty_key($xml, 1, "", "");
 
 print $xml->asXML();
-
+exit();
 ?>
