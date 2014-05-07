@@ -394,7 +394,7 @@ foreach ($reg_data_scrubbed as &$tmp)
 	}
 
 global $xml; # Fix for Joomla weirdness
-$xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?>'.'<Collection clsid="{53B533F5-224C-47e3-B01B-CA3B3F3FF4BF}" name="'.$_POST["collection"].'"></Collection>');
+$xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?>'.'<Collection clsid="{53B533F5-224C-47e3-B01B-CA3B3F3FF4BF}" name="'.htmlentities($_POST["collection"]).'"></Collection>');
 
 foreach ($reg_data_scrubbed as $reg_line)
 	{

@@ -1,3 +1,7 @@
+0.7.1B - 07/05/2014
+* Fixed a bug that would cause PHP to error out before producing output if the
+  collection name had non-HTML encoded characters
+
 0.7B - 21/03/2014
 * BETA milestone
 * Corrected some minor spelling errors on the first page
