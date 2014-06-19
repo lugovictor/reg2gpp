@@ -171,7 +171,7 @@ function conv_regvalue($line)
 		}
 	elseif (stripos($regkey, 'hex(b):') === 0)
 		{
-		$value = conv_hex($regkey);
+		$value = hex_qword_reverse(conv_hex($regkey));
 		$type = "REG_QWORD";
 		$image = 9 + $action[1];
 		}
@@ -313,6 +313,14 @@ function hex2str($hex)
 		}
 	return $string;
 	}
+
+function hex_qword_reverse($hex) {
+	$reversed = "";
+	for ($i = 0; $i < strlen($hex); $i += 2) {
+		$reversed = substr($hex, $i, 2).$reversed;
+	}
+	return $reversed;
+}
 	
 function add_empty_key($xmlseg, $top, $hive, $key)
 	{
