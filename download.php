@@ -184,7 +184,7 @@ function conv_regvalue($line)
 		}
 	elseif (stripos($regkey, 'hex(2):') === 0)
 		{
-		$value = conv_hex($regkey);
+		$value = utf8_encode(hex2str(hex2expand_scrub(conv_hex($regkey))));
 		$type = "REG_EXPAND_SZ";
 		$image = 4 + $action[1];
 		}
@@ -258,6 +258,17 @@ function hex2multi_scrub($code)
 		$i+=2;
 		}
 	$code = substr($code, 0, strlen($code)-4);
+	return $code;
+	}
+
+function hex2expand_scrub($code)
+	{
+	$i = 2;
+	while ($i<strlen($code))
+		{
+		$code = substr_replace($code, '', $i, 2);
+		$i+=2;
+		}
 	return $code;
 	}
 
