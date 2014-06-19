@@ -1,3 +1,7 @@
+0.7.2B - 19/06/2014
+* Fixed EXPAND_SZ not converting from hex to string value in output XML
+* Fixed REG_QWORD character order
+
 0.7.1B - 07/05/2014
 * Fixed a bug that would cause PHP to error out before producing output if the
   collection name had non-HTML encoded characters
