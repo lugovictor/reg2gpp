@@ -23,10 +23,10 @@ include 'hide_email.php';
 ?>
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Registry to Group Policy Preferences XML Converter</title>
-	</head>
-	<body>
-		<?php include "reg2gpp.php"; ?>
-	</body>
+    <head>
+        <title>Registry to Group Policy Preferences XML Converter</title>
+    </head>
+    <body>
+        <?php include "reg2gpp.php"; ?>
+    </body>
 </html>
