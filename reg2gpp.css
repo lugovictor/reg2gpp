@@ -1,0 +1,16 @@
+#article {
+	margin: 0 auto;
+	width: 768px;
+}
+#apply-instructions,
+#use-instructions {
+	border: 1px solid black;
+	padding: 0.5em;
+}
+#apply-instructions-header,
+#use-instructions-header {
+	margin: 0;
+}
+form {
+	margin-bottom: 1.5em;
+}
