@@ -25,7 +25,7 @@ include 'hide_email.php';
 <html>
     <head>
         <title>Reg2GPP - Registry to Group Policy Preferences XML Converter</title>
-        <link rel="stylesheet" type="style/css" href="reg2gpp.css" />
+        <link rel="stylesheet" type="text/css" href="reg2gpp.css" />
     </head>
     <body>
         <div id="article">

@@ -2,15 +2,28 @@
 	margin: 0 auto;
 	width: 768px;
 }
+
 #apply-instructions,
 #use-instructions {
 	border: 1px solid black;
-	padding: 0.5em;
+	padding: 0.2em;
+	margin: 0.2em 0;
+	-moz-user-select: none;
+	-webkit-user-select: none;
 }
-#apply-instructions-header,
-#use-instructions-header {
+
+#apply-instructions h3,
+#use-instructions h3,
+form p {
 	margin: 0;
 }
+
+#apply-instructions-text,
+#use-instructions-text,
+#download-section {
+	display: none;
+}
+
 form {
 	margin-bottom: 1.5em;
 }

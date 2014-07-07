@@ -24,6 +24,8 @@ if (session_id() == "") {
     include 'hide_email.php';
 }
 ?>
+<script type="text/javascript" src="jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="reg2gpp.js"></script>
 
 <h1>Reg2GPP</h1>
 <h2>Registry to Group Policy Preferences XML Converter</h2>
@@ -39,8 +41,18 @@ if (session_id() == "") {
     potentially hours of work.
 </p>
 
+<h3>Upload REG file to convert</h3>
+<form action="<?php echo UPLOAD_FILE ?>" method="post"
+    enctype="multipart/form-data">
+    <label for="file">Filename:</label>
+    <input type="file" name="file" id="file" />
+    <input type="submit" name="submit" value="Upload" />
+</form>
+
+<div id="download-section"></div>
+
 <div id="use-instructions">
-    <h3 id="use-instructions-header">How to use Reg2GPP</h3>
+    <h3>How to use Reg2GPP</h3>
     <div id="use-instructions-text">
         <p>Choose the .reg file you want to convert and hit Upload. The next
             page will verify it uploaded successfully, and give you a couple of
@@ -51,14 +63,14 @@ if (session_id() == "") {
 </div>
 
 <div id="apply-instructions">
-    <h3 id="apply-instructions-header">How to apply the XML output</h3>
+    <h3>How to apply the XML output</h3>
     <div id="apply-instructions-text">
         <p>Copy the file to your clipboard (just find the file, and either
-            right-click -> "Copy" or select it and Ctrl+C). In Group Policy
-            Management Editor, under Computer/User Configuration -> Preferences
-            -> Windows Settings -> Registry, right click anywhere in whitespace
-            and click "Paste". The settings SHOULD then be imported directly as
-            collections of Registry settings. Hopefully.
+            right-click &#x2192; "Copy" or select it and Ctrl+C). In Group
+            Policy Management Editor, under Computer/User Configuration &#x2192;
+            Preferences &#x2192; Windows Settings &#x2192; Registry, right click
+            anywhere in whitespace and click "Paste". The settings SHOULD then
+            be imported directly as collections of Registry settings. Hopefully.
         </p>
     </div>
 </div>
@@ -73,13 +85,6 @@ if (session_id() == "") {
     doing. Don't blame me if it breaks. On the plus side, this online tool is
     and always will be 100% free (as in freedom, and as in beer).
 </p>
-
-<form action="<?php echo UPLOAD_FILE ?>" method="post"
-    enctype="multipart/form-data">
-    <label for="file">Filename:</label>
-    <input type="file" name="file" id="file" /><br />
-    <input type="submit" name="submit" value="Upload" />
-</form>
 
 <h3>Supporting Reg2GPP</h3>
 <p>Reg2GPP is free to everyone and always will be. However, some of you out
@@ -110,9 +115,9 @@ if (session_id() == "") {
         <img alt="" border="0"
             src="https://www.paypalobjects.com/en_AU/i/scr/pixel.gif" width="1"
             height="1" />
+        <p><strong>Buy me a beer!</strong> <em>(if you want)</em>
+        </p>
     </form>
-    <p><strong>Buy me a beer!</strong> <em>(if you want)</em>
-    </p>
 </div>
 <p>This tool is Beta quality. If it's not generating your file correctly, please
     contact me at <?php echo hide_email(WEBMASTER_EMAIL) ?> with a copy of the
