@@ -1,3 +1,7 @@
+0.7.4B - 08/07/2014
+* Fixed a bug causing backslashes to be erronously stripped from REG_EXPAND_SZ
+* Fixed a bug that would break conversion if REG_MULTI_SZ contained ampersands
+
 0.7.3B - 21/06/2014
 * Added PayPal "Buy Me A Beer" button (for those who wanted to show support)
 

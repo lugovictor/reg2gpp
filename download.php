@@ -190,7 +190,7 @@ function conv_regvalue($line)
 		}
 	else
 		{
-		$value = utf8_encode(substr($regkey,1,-1));
+		$value = stripslashes(utf8_encode(substr($regkey,1,-1)));
 		$type = "REG_SZ";
 		$image = 4 + $action[1];
 		}
@@ -222,7 +222,7 @@ function conv_regvalue($line)
 	$prop_node->addAttribute('key', "$key");
 	$prop_node->addAttribute('name', stripslashes("$status"));
 	$prop_node->addAttribute('type', $type);
-	$prop_node->addAttribute('value', stripslashes("$value"));
+	$prop_node->addAttribute('value', "$value");
 	$filters_node = $reg_node->addChild('Filters');
 	if ($_POST['applyOnce'] == "1")
 		{
@@ -237,7 +237,7 @@ function conv_regvalue($line)
 		$vals_node = $prop_node->addChild('Values');
 		foreach ($values as $val)
 			{
-			$val_node = $vals_node->addChild('Value', utf8_encode($val));
+			$val_node = $vals_node->addChild('Value', htmlspecialchars(utf8_encode($val)));
 			}
 		}
 	}
