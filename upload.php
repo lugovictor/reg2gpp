@@ -17,7 +17,7 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with Reg2GPP.  If not, see <http://www.gnu.org/licenses/>.
 
-session_start();
+if(!isset($_SESSION)) session_start();
 include 'config.php';
 include 'error.php'; ?>
 <html>
@@ -48,18 +48,18 @@ else
 		{
 		$_SESSION["file"] = $_FILES["file"];
 		$newfile = 1;
-		}	
+		}
 
 	echo "<strong>Upload:</strong> ".$_SESSION["file"]["name"]."<br />";
 	echo "<strong>Type:</strong> ".$_SESSION["file"]["type"]."<br />";
 	echo "<strong>Size:</strong> " . round(($_SESSION["file"]["size"] / 1024), 2) . " Kb<br />";
-	
+
 	if ($newfile == 1)
 		{
 		$_SESSION["reg_data"] = file($_SESSION["file"]["tmp_name"], FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) or die('Failed to open file!');
 		$_SESSION["reg_data_scrubbed"] = str_replace(array("\x00", "\xFF", "\xFE", chr(13)), "", $_SESSION["reg_data"]);
 		}
-	
+
 	if (stripos($_SESSION["reg_data_scrubbed"][0], "Windows Registry Editor Version 5.00") !== false)
 		{ ?>
 		<script type="text/javascript">

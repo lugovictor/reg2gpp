@@ -1,4 +1,4 @@
-*** Registry to Group Policy Preferences XML Converter - README ***
+# Registry to Group Policy Preferences XML Converter
 
 The purpose of this tool is to convert Windows registry files (*.reg) into a
 format usable by Group Policy Preferences (*.xml), which is used in Windows

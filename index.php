@@ -17,7 +17,7 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with Reg2GPP.  If not, see <http://www.gnu.org/licenses/>.
 
-session_start();
+if(!isset($_SESSION)) session_start();
 include 'config.php';
 include 'hide_email.php';
 ?>

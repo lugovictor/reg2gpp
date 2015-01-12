@@ -17,7 +17,7 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with Reg2GPP.  If not, see <http://www.gnu.org/licenses/>.
 
-session_start();
+if(!isset($_SESSION)) session_start();
 include 'config.php';
 error_reporting(E_ALL ^ E_NOTICE);
 if (file_exists(BASEDIR.'counter'))
@@ -32,7 +32,7 @@ include 'guid.php';
 date_default_timezone_set('UTC');
 
 header("Content-Disposition: attachment; filename=".$_POST["collection"].".xml");
-header("Content-Type: text/xml; "); 
+header("Content-Type: text/xml; ");
 
 function conv_collection($line)
 	{
@@ -321,7 +321,7 @@ function hex_qword_reverse($hex) {
 	}
 	return $reversed;
 }
-	
+
 function add_empty_key($xmlseg, $top, $hive, $key)
 	{
 	foreach ($xmlseg->xpath("Collection") as $node)
@@ -434,7 +434,7 @@ foreach ($reg_data_scrubbed as $reg_line)
 		conv_regvalue($reg_line);
 		}
 	}
-	
+
 add_empty_key($xml, 1, "", "");
 
 print $xml->asXML();
