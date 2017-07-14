@@ -395,10 +395,8 @@ function add_empty_key($xmlseg, $top, $hive, $key)
 		}
 	}
 
-$reg_data_scrubbed = str_replace(array("\x00", "\xFF", "\xFE", chr(13)), "", $_SESSION["reg_data"]);
-
 $piece = "";
-foreach ($reg_data_scrubbed as &$tmp)
+foreach ($_SESSION["reg_data"] as &$tmp)
 	{
 	if ($piece !== false)
 		{
@@ -415,7 +413,7 @@ foreach ($reg_data_scrubbed as &$tmp)
 global $xml; # Fix for Joomla weirdness
 $xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?>'.'<Collection clsid="{53B533F5-224C-47e3-B01B-CA3B3F3FF4BF}" name="'.htmlentities($_POST["collection"]).'"></Collection>');
 
-foreach ($reg_data_scrubbed as $reg_line)
+foreach ($_SESSION["reg_data"] as $reg_line)
 	{
 	if (stripos($reg_line, "Windows Registry Editor Version 5.00") !== false)
 		{

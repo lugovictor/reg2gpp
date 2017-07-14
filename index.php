@@ -27,7 +27,7 @@ include 'hide_email.php';
 </head>
 <body>
 <h1>Reg2GPP</h1>
-<h2>Registry to Group Policy Preferences XML Converter Version 0.7.3 Beta</h2>
+<h2>Registry to Group Policy Preferences XML Converter Version 0.7.4 Beta</h2>
 <p></p>
 <p>The purpose of this tool is to convert Windows registry files (*.reg) into a format usable by Group Policy Preferences (*.xml), which is used in Windows Active Directory environments to propagate settings across to multiple Windows-based computers (usually in a corporate environment). Apparently, Microsoft didn't feel it necessary to create an official way to do this, and the task of manually importing each registry setting from one system to the other can become extremely tedious, time-consuming, and prone to error. Reg2GPP was designed as the bridge between these two systems, saving potentially hours of work.</p>
 <p><strong>TO USE:</strong> Choose the .reg file you want to convert and hit Upload. The next page will verify it uploaded successfully, and give you a couple of options. When happy, click Convert and Download XML and you should get a prompt to download your XML file.</p>
@@ -61,7 +61,7 @@ if (file_exists('counter'))
   echo "<p>This tool has converted ".$counter[0]." files since 26th August 2012.</p>";
   }
 ?>
-<p>Get the source code from the git repository <a href="http://bitbucket.org/runecasters/reg2gpp/">here</a>!</p>
+<p>Get the source code from the git repository <a href="https://github.com/runecasters/reg2gpp/">here</a>!</p>
 <p>This tool is released under the condition of the <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public Licence</a>.</p>
 </body>
 </html>
